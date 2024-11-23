@@ -1,12 +1,8 @@
 
-
-
 function App() {
-
-
   return (
     <>
-      <h1>aplicacion limpia</h1>
+      <h1>aplicacion limpia finalmente</h1>
     </>
   )
 }
