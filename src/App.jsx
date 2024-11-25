@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useEffect } from "react"
 import axios from "axios"
+
 import "./App.css"
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
       //.then((resp) => resp.json())
       .then((data) => {
         setCriptos(data.data.data)
-        console.log(data)
+        //console.log(data)
       })
       .catch(() => {
         console.error("la peticion fallo")
@@ -24,11 +25,11 @@ function App() {
 
   return (
     <>
-      <h1>Lista de criptos</h1>
+      <h1 className="text-green-800 text-3xl font-bold">Lista de Criptos</h1>
       <ul>
         { 
           criptos.map(({id, name, priceUsd}) => (
-            <li key={id} className="verde">Nombre: {name}, Precio: {Math.round(priceUsd)} USD</li>
+            <li key={id} >Nombre: {name}, Precio: {Math.round(priceUsd)} USD</li>
           )) 
         }
         
