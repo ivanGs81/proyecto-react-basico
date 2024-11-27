@@ -2,7 +2,6 @@ import { useState } from "react"
 import { useEffect } from "react"
 import axios from "axios"
 
-import "./App.css"
 import Card from "./components/Card"
 
 function App() {
@@ -32,9 +31,16 @@ function App() {
       <h1 className="text-green-800 text-3xl font-bold text-center mb-3">Lista de Criptos</h1>
       <ul className="grid grid-cols-4">
         { 
-          criptos.map(({id, name, priceUsd, changePercent24Hr, explorer}) => (
+          criptos.map(({id, name, priceUsd, changePercent24Hr, explorer, symbol}) => (
             // eslint-disable-next-line react/jsx-key
-            <Card key={id} nombre={name} precioDolar={priceUsd} lastValue={changePercent24Hr}  site={explorer} />
+            <Card
+              key={id}
+              nombre={name}
+              precioDolar={priceUsd}
+              lastValue={ changePercent24Hr } 
+              site={explorer}
+              simbol={symbol}
+            />
           )) 
         }
         

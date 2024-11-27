@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root{
+   @apply bg-gray-50;
+   @apply h-dvh;
+}
+
+
+.positive{
+   @apply text-green-600;
+   @apply font-semibold;
+}
+.negative{ @apply text-red-600; }
