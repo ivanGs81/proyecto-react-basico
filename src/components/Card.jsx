@@ -14,7 +14,7 @@ function Card({ident, key, nombre, precioDolar, lastValue, site, simbol }) {
          </div>
          <div className="flex justify-end">
             <a href={site} className="text-xs block text-blue-500 hover:text-blue-700 hover:underline px-1" target="_blank">Más información</a>
-            <Link to={`/criptomonedas/${ident}`} className="text-xs block text-blue-500 hover:text-blue-700 hover:underline px-1 border-l border-l-blue-300" target="_blank">Mas detalles</Link>
+            <Link to={`/criptomonedas/${ident}`} className="text-xs block text-blue-500 hover:text-blue-700 hover:underline px-1 border-l border-l-blue-300">Mas detalles</Link>
          </div>
          
       </li>

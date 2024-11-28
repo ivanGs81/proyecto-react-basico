@@ -1,30 +1,25 @@
-import { useState } from "react"
-import { useEffect } from "react"
-import axios from "axios"
 
+import { useFetcht } from "../scripts/useFetcht"
 import Card from "../components/Card"
 
 function Gridi() {
-  const [criptos, setCriptos] = useState()
-  const API_URL = import.meta.env.VITE_API_URL;
-  useEffect(() => {
-    axios.get(`${API_URL}assets`)
-      .then((data) => {
-        setCriptos(data.data.data)
-      })
-      .catch(() => {
-        console.error("la peticion fallo")
-      })
-  }, [])
-  if (!criptos) {
+
+  const { criptos, loading, error } = useFetcht("assets");
+
+  if (loading) {
     return (
       <div className="h-dvh flex items-center justify-center">
         <p className="font-semibold text-red-700 text-5xl">Cargando...</p>
       </div>
     )
   }
-
-
+  if (error) {
+    return (
+      <div className="h-dvh flex items-center justify-center">
+        <p className="font-semibold text-red-700 text-lg">Error: {error}</p>
+      </div>
+    )
+  }
   return (
     <div className="container mx-auto">
       <h1 className="text-green-800 text-3xl font-bold text-center my-4">Lista de Criptos</h1>
@@ -48,8 +43,8 @@ function Gridi() {
     </div>
     
   )
-
+  
 }
 
 export default Gridi
-// mas informacion: https://docs.coincap.io/
+
