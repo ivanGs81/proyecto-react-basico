@@ -39,6 +39,7 @@ function Gridi() {
               lastValue={ changePercent24Hr } 
               site={explorer}
               simbol={symbol}
+              ident={id}
             />
           )) 
         }

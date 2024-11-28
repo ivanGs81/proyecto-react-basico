@@ -1,6 +1,8 @@
+import { Link } from 'react-router-dom'
+
 
 // eslint-disable-next-line react/prop-types
-function Card({ key, nombre, precioDolar, lastValue, site, simbol }) {
+function Card({ident, key, nombre, precioDolar, lastValue, site, simbol }) {
    const clases = "border-gray-200 bg-white border p-3 m-4 rounded-md border-l-4 shadow-sm";
    return(
       
@@ -12,7 +14,7 @@ function Card({ key, nombre, precioDolar, lastValue, site, simbol }) {
          </div>
          <div className="flex justify-end">
             <a href={site} className="text-xs block text-blue-500 hover:text-blue-700 hover:underline px-1" target="_blank">Más información</a>
-            <a href="/detalles" className="text-xs block text-blue-500 hover:text-blue-700 hover:underline px-1 border-l border-l-blue-300" target="_blank" >Mas detalles</a>
+            <Link to={`/criptomonedas/${ident}`} className="text-xs block text-blue-500 hover:text-blue-700 hover:underline px-1 border-l border-l-blue-300" target="_blank">Mas detalles</Link>
          </div>
          
       </li>
