@@ -13,3 +13,8 @@
    @apply font-semibold;
 }
 .negative{ @apply text-red-600; }
+
+.logo-size{
+   width: 6rem;
+   height: auto;
+}
