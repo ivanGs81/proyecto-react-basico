@@ -3,37 +3,16 @@ import { useEffect, useState } from "react"
 
 export function useFetcht(url) {
    const API_URL = import.meta.env.VITE_API_URL;
-   const [criptos, setCriptos] = useState(null);
-   const [loading, setLoading] = useState(true);
-   const [error, setError] = useState(null)
+   const [datas, setDatas] = useState();
 
    useEffect(() => {
-      setLoading(true)
-      axios.get(API_URL + url)
-         .then((data) => setCriptos(data.data.data))
-         .catch(() => setError(error))
-         .finally(() => setLoading(false)) 
+      axios.get(`${API_URL}${url}`)
+         .then((data) => setDatas(data.data.data))
+         .catch((e) => console.error(e))
    }, []);
 
-   return { criptos, loading, error }
+   return datas
 }
 
-
-export function useFetchtHistory(id,dato) {
-   const API_URL = import.meta.env.VITE_API_URL;
-   const [history, setHistory] = useState([]);
-   const [loadingHistory, setLoadingHistory] = useState(true);
-   const [errorHistory, setErrorHistory] = useState(null)
-
-   useEffect(() => {
-      setLoadingHistory(true)
-      axios.get(`${API_URL}assets/${id}/history${dato}`)
-         .then((data) => setHistory(data.data.data))
-         .catch(() => setErrorHistory(errorHistory))
-         .finally(() => setLoadingHistory(false)) 
-   }, []);
-
-   return { history, loadingHistory, errorHistory }
-}
 
 // mas informacion: https://docs.coincap.io/
