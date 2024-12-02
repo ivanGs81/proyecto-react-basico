@@ -4,7 +4,9 @@ import Card from "../components/Card"
 
 function Gridi() {
 
-  const criptos = useFetcht("assets");
+  const [criptos, carga] = useFetcht("assets");
+
+  if(carga) return <span>Cargando..</span>
 
   return (
     <div className="container mx-auto">

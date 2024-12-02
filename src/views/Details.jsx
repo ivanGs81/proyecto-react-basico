@@ -1,55 +1,32 @@
 
 import { useParams } from "react-router-dom"
 import { useFetcht} from "../scripts/useFetcht";
+import CardDetails from "../components/CardDetails";
+import CardTable from "../components/CardTable";
+import BackIcon from "../components/BackIcon";
 
 
 const Details = () => {
    const param = useParams();
 
-   const criptos = useFetcht(`assets/${param.id}`)
-   const history = useFetcht(`assets/${param.id}/history?interval=d1`)
+   const [criptos, cargaCripto] = useFetcht(`assets/${param.id}`)
+   const [history, cargaHist] = useFetcht(`assets/${param.id}/history?interval=d1`)
 
+   if(cargaCripto || cargaHist) return <span>Cargando...</span>
    
    return(
       <div className="container mx-auto h-dvh">
-         <a href="/criptomonedas" className="text-green-700 flex py-4 font-semibold"><span>{ backPage() }</span><span>Volver</span></a>
+         <a href="/criptomonedas" className="text-green-700 flex py-4 font-semibold"><span>{ <BackIcon /> }</span><span>Volver</span></a>
          <div className="flex">
-            <div className="border border-gray-200 shadow-sm p-3 me-4 bg-white">
-               {
-                  criptos && (
-                     <h1 className="text-2xl font-bold text-green-700">{criptos.name} ({criptos.symbol})</h1>
-                  )
-               }
+            {
+               criptos && ( <CardDetails criptos={criptos} /> )
+            }
                
-            </div>
-            <div className="mx-3 mb-3">
+            
+            <div className="mx-4 grow">
+               <h2 className="text-green-600 mb-3 font-semibold text-2xl">Historial de precios</h2>
                {
-                  criptos && (
-                     <div className="flex border border-gray-200 shadow-sm bg-white p-3">
-                        <p className="text-sm px-2"><span className="font-bold">Ranking:</span> {criptos.rank}</p>
-                        <p className="text-sm px-2"><span className="font-bold">Cantidad:</span> { parseFloat(criptos.supply).toFixed(2) }</p>
-                        <p className="text-sm px-2"><span className="font-bold">Precio cant.:</span> { parseFloat(criptos.marketCapUsd).toFixed(2)} USD</p>
-                        <p className="text-sm px-2"><span className="font-bold">Precio USD:</span> { parseFloat(criptos.volumeUsd24Hr).toFixed(2)} USD</p>
-                     </div>
-                  )
-               }
-               {
-                  history && (
-                     <table className="w-full mt-3">
-                        <thead className="bg-green-400">
-                           <th className="text-white">Fecha</th>
-                           <th className="text-white">Precio</th>
-                        </thead>
-                        <tbody className="border-gray-300 border border-t-0">
-                           {history.map(({date, priceUsd, time}) =>(
-                              <tr className="bg-white border-b-gray-300 border-b" key={time}>
-                                 <td className="px-3 py-2">{new Date(date).toDateString()}</td>
-                                 <td className="px-3 py-2">{parseFloat(priceUsd).toFixed(2)} USD</td>
-                              </tr>
-                           ))}
-                        </tbody>
-                     </table>
-                  )
+                  history && ( <CardTable history={history} /> )
                }
                
             </div>
@@ -59,9 +36,6 @@ const Details = () => {
       
    )
 
-   function backPage() {
-      return <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#15803d"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z" /></svg>;
-   }
 }
 
 export default Details
