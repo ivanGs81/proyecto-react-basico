@@ -1,5 +1,5 @@
 
-import { useFetcht } from "../scripts/useFetcht"
+import { useFetcht } from "../scripts/hooks/useFetcht"
 import Card from "../components/Card"
 
 function Gridi() {

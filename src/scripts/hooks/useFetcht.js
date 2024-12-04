@@ -5,16 +5,17 @@ export function useFetcht(url) {
    const API_URL = import.meta.env.VITE_API_URL;
    const [datas, setDatas] = useState();
    const [carga, setCarga] = useState(false);
+   const [error, setError] = useState()
 
    useEffect(() => {
       setCarga(true)
       axios.get(`${API_URL}${url}`)
          .then((data) => setDatas(data.data.data))
-         .catch((e) => console.error(e))
+         .catch(() => setError(error))
          .finally(() => setCarga(false))
    }, []);
 
-   return [datas, carga]
+   return [datas, carga, error]
 }
 
 
