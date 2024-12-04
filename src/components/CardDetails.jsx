@@ -1,5 +1,5 @@
 // eslint-disable-next-line react/prop-types
-export default function CardDetails({ criptos }) {
+function CardDetails({ criptos }) {
    return (
       <div className="border border-gray-200 shadow-sm p-3 me-4 bg-white h-fit">
          <h1 className="text-2xl font-bold text-green-700 pb-4">{criptos.name} ({criptos.symbol})</h1>
@@ -10,3 +10,5 @@ export default function CardDetails({ criptos }) {
       </div>
    )
 }
+
+export default CardDetails

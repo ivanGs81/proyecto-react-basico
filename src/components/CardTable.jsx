@@ -1,5 +1,5 @@
 // eslint-disable-next-line react/prop-types
-export default function CardTable({ history }) {
+function CardTable({ history }) {
    return (
       <div className="mx-4 grow">
          <h2 className="text-green-600 mb-3 font-semibold text-2xl">Historial de precios</h2>
@@ -21,3 +21,5 @@ export default function CardTable({ history }) {
       
    )
 }
+
+export default CardTable

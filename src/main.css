@@ -2,19 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-#root{
-   @apply bg-gray-50;
-   @apply h-dvh;
-}
+body{ @apply bg-gray-100; }
 
+#root{ }
 
 .positive{
    @apply text-green-600;
    @apply font-semibold;
 }
 .negative{ @apply text-red-600; }
-
-.logo-size{
-   width: 6rem;
-   height: auto;
-}
