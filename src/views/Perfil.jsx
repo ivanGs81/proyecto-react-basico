@@ -1,11 +1,17 @@
-import ButtonBack from "../components/ButtonBack"
+import { useContext } from "react"
+import { UserContext } from "../contexto/userContext"
+import ButtonBack from "../components/buttonBack"
+
 
 function Perfil() {
+   
+   const usuario = useContext(UserContext)
+
    return (
       <div className="container">
-         <ButtonBack />
-         <div>Perfil de Usuario</div>
-         <div>usuario desde: 22/09/2024</div>
+         <ButtonBack/>
+         <h1>Perfil de { usuario.name }</h1>
+         <p>usuario desde: {usuario.registered}</p>
       </div>
       
    )

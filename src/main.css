@@ -4,8 +4,6 @@
 
 body{ @apply bg-gray-100; }
 
-#root{ }
-
 .positive{
    @apply text-green-600;
    @apply font-semibold;

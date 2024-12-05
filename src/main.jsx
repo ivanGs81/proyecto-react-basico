@@ -10,21 +10,24 @@ import Home from './views/Home.jsx'
 import App from './App.jsx'
 import Perfil from './views/Perfil.jsx'
 import Bienvenida from './views/Bienvenida.jsx'
+import {UserContextProvider} from '../src/contexto/userContext.jsx'
 
 createRoot(document.getElementById('root')).render(
    
-   <BrowserRouter>
-      <Routes>
-         <Route path='/' element={ <Home /> }>
-            <Route index element={ <Bienvenida /> } />
-            <Route path='perfil' element={ <Perfil /> } />
-         </Route>
-         <Route path='/criptomonedas' element={ <App /> }>
-            <Route index element={ <Gridi /> } />
-            <Route path=':id' element={ <Details /> } />
-         </Route>
-         <Route path='*' element={ <Error404 /> } />
-      </Routes>
-   </BrowserRouter>
+   <UserContextProvider>
+      <BrowserRouter>
+         <Routes>
+            <Route path='/' element={ <Home /> }>
+               <Route index element={ <Bienvenida /> } />
+               <Route path='perfil' element={ <Perfil /> } />
+            </Route>
+            <Route path='/criptomonedas' element={ <App /> }>
+               <Route index element={ <Gridi /> } />
+               <Route path=':id' element={ <Details /> } />
+            </Route>
+            <Route path='*' element={ <Error404 /> } />
+         </Routes>
+      </BrowserRouter>
+   </UserContextProvider>
    
 )
