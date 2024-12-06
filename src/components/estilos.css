@@ -1,0 +1,8 @@
+.positive{
+   @apply text-green-600;
+   @apply font-regular;
+}
+.negative{
+   @apply text-red-600;
+   @apply font-regular;
+}

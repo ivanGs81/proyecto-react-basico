@@ -11,12 +11,4 @@ body{
    @apply font-roboto;
    @apply font-light;
 }
-
-.positive{
-   @apply text-green-600;
-   @apply font-regular;
-}
-.negative{
-   @apply text-red-600;
-   @apply font-regular;
-}
+p{ @apply text-sm; }
