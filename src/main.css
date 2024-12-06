@@ -1,11 +1,22 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body{ @apply bg-gray-100; }
+body{
+   @apply bg-gray-200;
+   @apply font-roboto;
+   @apply font-light;
+}
 
 .positive{
    @apply text-green-600;
-   @apply font-semibold;
+   @apply font-regular;
 }
-.negative{ @apply text-red-600; }
+.negative{
+   @apply text-red-600;
+   @apply font-regular;
+}

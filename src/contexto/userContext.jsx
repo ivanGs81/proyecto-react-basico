@@ -8,7 +8,8 @@ function UserContextProvider({ children }) {
    useEffect(() => {
       setUsering({
          name: "Juanito",
-         registered: "12/10/2024"
+         registered: "12/10/2024",
+         role: "Administrador"
       })
    }, [])
    return (
