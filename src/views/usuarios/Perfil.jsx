@@ -2,11 +2,9 @@ import { useContext } from "react"
 import { UserContext } from "../../contexto/userContext"
 import ButtonBack from "../../components/ButtonBack"
 
-
 function Perfil() {
    
    const usuario = useContext(UserContext)
-
    return (
       <div className="container">
          

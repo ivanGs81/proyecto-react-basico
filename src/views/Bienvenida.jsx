@@ -11,7 +11,6 @@ function Bienvenida() {
          <p className="text-center text-sky-600 text-sm mt-2">El sitio con mas 100 criptomonedas registradas</p>
          <div className="flex justify-center">
             <BotonVerde contenido={"Ingresar"} url={"/criptomonedas"} />
-            <BotonVerde contenido={"Perfil"} url={"/perfil"} />
          </div>
       </div>
    </div>

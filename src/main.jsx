@@ -11,7 +11,7 @@ import App from './App.jsx'
 import Perfil from './views/usuarios/Perfil.jsx'
 import Bienvenida from './views/Bienvenida.jsx'
 import {UserContextProvider} from '../src/contexto/userContext.jsx'
-import Login from './views/usuarios/login.jsx'
+import Login from './views/usuarios/Login.jsx'
 
 createRoot(document.getElementById('root')).render(
    
