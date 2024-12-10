@@ -12,18 +12,24 @@ function Login() {
       email: "",
       password: ""
    });
-
+   const [loading, setLoading] = useState(false);
+   const [error, setError] = useState(null)
    const submit = (e) => {
       e.preventDefault()
+      setLoading(true)
       axios.post("https://reqres.in/api/login", user)
          .then(data => {
             localStorage.setItem("tokenCriptonet", data.data.token)
-            navigation("/criptomonedas")
+            navigation("/")
          })
-         .catch(e => alert(e))
+         .catch(e =>{
+            console.table(e)
+            setError(e.response.data.error)
+         } )
+         .finally(() => setLoading(false))
    }
 
-   if(localStorage.getItem("tokenCriptonet")) return <Navigate to="/" />
+   if(localStorage.getItem("tokenCriptonet")) return <Navigate to="/criptomonedas" />
 
    return (
       <div className="container h-dvh flex justify-center items-center">
@@ -43,7 +49,7 @@ function Login() {
                      })
                   }} />
                <FormInput
-                  nombre={"pss"}
+                  nombre={"password"}
                   tipo={"password"}
                   etiqueta={"Contraseña"}
                   change={(e) => {
@@ -52,10 +58,12 @@ function Login() {
                         password: e.target.value
                      })
                   }} />
+               
                <div className='flex justify-center mt-4'>
-                  <FormButton contenido={"Acceder"} tipo={"submit"} />
+                  <FormButton contenido={loading ? "Cargando..." : "Acceder"} tipo={"submit"} />
                </div>
             </form>
+            { error && <span className='text-red-600 text-xs uppercase font-regular'>{error}</span> }
          </div>
       </div>
    )
